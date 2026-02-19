@@ -141,8 +141,9 @@ Keeping `load_data.py`, `analysis.py`, and `dashboard.py` as separate files mean
 ## requirements.txt
 
 ```
-pandas
-scipy
-streamlit
-plotly
+pandas==2.2.3
+scipy==1.14.1
+plotly==5.18.0
+altair==4.2.2
+streamlit==1.28.0
 ```
