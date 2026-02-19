@@ -3,7 +3,7 @@
 > Analysis tool for Bob Loblaw's drug candidate study, examining immune cell population changes across patient samples.
 
 ## Dashboard Link
-**[Live Dashboard](https://loblaw-bio-assessment.streamlit.app)** 
+**[Live Dashboard](https://teiko-technical-assessment-rottn93urt55ejbpdzbgfz.streamlit.app/)** 
 ---
 
 ## Project Structure
