@@ -32,8 +32,14 @@ fig2 = px.bar(
     labels={'percentage': 'Frequency (%)', 'sample': 'Sample ID'},
     range_y=[0, 100]
 )
-fig2.update_xaxes(showticklabels=False)
-fig2.update_layout(xaxis_title="Samples (n=10,500)", yaxis_title="Frequency (%)")
+fig2.update_xaxes(
+    showticklabels=False,
+    title=dict(text="Samples (n=10,500)", standoff=10)  
+)
+fig2.update_layout(
+    yaxis_title="Frequency (%)",
+    margin=dict(b=60)  
+)
 st.plotly_chart(fig2, use_container_width=True)
 
 #Part 3: Statistical Analysis
@@ -67,10 +73,10 @@ with col1:
     st.subheader("Samples per Project")
     st.dataframe(results['samples_per_project'], use_container_width=True)
 with col2:
-    st.subheader("Responders vs Non-Responders")
+    st.subheader("Responders/Non-Responders")
     st.dataframe(results['response_counts'], use_container_width=True)
 with col3:
-    st.subheader("Sex Breakdown")
+    st.subheader("Males/Females")
     st.dataframe(results['gender_counts'], use_container_width=True)
 
 st.metric(
