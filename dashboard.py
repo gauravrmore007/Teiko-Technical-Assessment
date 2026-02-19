@@ -17,18 +17,23 @@ st.set_page_config(page_title="Immune Cell Population Dashboard", layout="wide")
 st.title("Immune Cell Population Dashboard")
 
 # Part 2: Initial Analysis
-st.header("Summay Table: Cell Population Frequencies by Sample")
+st.header("Summary Table: Cell Population Frequencies by Sample")
 freq_df = get_frequency_table()
 
 st.dataframe(freq_df, use_container_width=True)
 
 fig2 = px.bar(
-    freq_df, x='sample', y='percentage', color='population',
+    freq_df.sort_values('sample'),
+    x='sample',
+    y='percentage',
+    color='population',
     barmode='stack',
     title='Relative Cell Population Frequency per Sample (%)',
-    labels={'percentage': 'Frequency (%)', 'sample': 'Sample ID'}
+    labels={'percentage': 'Frequency (%)', 'sample': 'Sample ID'},
+    range_y=[0, 100]
 )
-fig2.update_xaxes(tickangle=45)
+fig2.update_xaxes(showticklabels=False)
+fig2.update_layout(xaxis_title="Samples (n=10,500)", yaxis_title="Frequency (%)")
 st.plotly_chart(fig2, use_container_width=True)
 
 #Part 3: Statistical Analysis
