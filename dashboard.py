@@ -1,5 +1,11 @@
 import streamlit as st
 import plotly.express as px
+import os
+import subprocess
+
+# Auto-create DB (for cloud deployment)
+if not os.path.exists("cell_counts.db"):
+    subprocess.run(["python", "load_data.py"], check=True)
 from analysis import (
     get_frequency_table,
     get_responder_analysis,
